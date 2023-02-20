@@ -191,6 +191,7 @@ class EasyExcelAPIView(APIView, ExcelResponseMixin):
         self.header = self.get_header()
         self.kwargs_custom_func_row = self.get_kwargs_custom_func_row()
         self.__customs_func_row = self.get_custom_func_row(**self.kwargs_custom_func_row) # Custom functions to get data of the row
+        self.get_exception_handler()
   
     def get(self, request, format=None, *args, **kwargs):
         """
@@ -249,7 +250,7 @@ class EasyExcelAPIView(APIView, ExcelResponseMixin):
                 if key in self.get_fields():
                     row_base[self.get_fields().index(key)] = funct(row_base[self.get_fields().index(key)])
                 else: # Si el key no es un campo del modelo
-                    # El key debe tener el formato: 'extra1_field_model' 
+                    # El key debe tener el formato: 'extra1_fieldModel' 
                     # Ejemplo: 'extra1_dia' para pasarle como parámetro a la función el valor del campo 'dia' del modelo
                     key_base = key.split('_')[1] # dia
                     value_base = row_copy[self.get_fields().index(key_base)] # Obtener el valor del campo 'dia' del modelo
@@ -307,7 +308,7 @@ class EasyExcelAPIView(APIView, ExcelResponseMixin):
 
     def get_exception_handler(self):
         """
-        Obtiene el manejador de excepciones.
+        Especifica el manejador de excepciones.
         """
         if self.fields and self.header:
             if len(self.fields) != len(self.header):
