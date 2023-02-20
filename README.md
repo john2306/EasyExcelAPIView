@@ -1,6 +1,16 @@
 # EasyExcelAPIView
 Este módulo permite exportar fácilmente datos de una modelo de Django a un archivo de Excel 2007 o superior.
 
+## Requerimientos
+* Python 3.6 o superior
+* Django 2.2 o superior
+* openpyxl 3.0.3 o superior
+* django-rest-framework 3.11.0 o superior
+
+## Dependencias
+* pip install openpyxl==3.1.1
+* pip install djangorestframework==3.14.0
+
 ## Instalación
 Descargar o copiar el archivo `EasyExcelAPIView.py` y agregarlo a su proyecto.
 
