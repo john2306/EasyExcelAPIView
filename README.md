@@ -25,8 +25,10 @@ class ExportarModeloExcel(EasyExcelAPIView):
 ```
  
 ### Atributos   
-* `model`: Modelo de Django que se desea exportar.
-* `filename`: Nombre del archivo de Excel que se generará. Por defecto es `export.xlsx`.
-* `sheet_name`: Nombre de la hoja de Excel que se generará. Por defecto es `Hoja 1`.
+* `model`: Modelo de Django que se desea exportar (necesario).
+* `filename`: Nombre del archivo de Excel que se generará (opcional).
+* `header`: Lista de encabezados que se desean mostrar en el archivo de Excel. 
+            Por defecto se usan los nombres o el `verbose_name` de los campos del modelo.
+* `sheet_name`: Nombre de la hoja de Excel que se generará. (opcional).
 * `fields`: Lista de campos que se desean exportar. Por defecto se exportan todos los campos del modelo.
 * `with_relacion`: Booleano que indica si se desea exportar los campos relacionados. Por defecto es `False`.
